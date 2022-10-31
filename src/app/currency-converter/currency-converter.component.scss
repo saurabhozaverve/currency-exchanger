@@ -1,0 +1,48 @@
+.label-currency-box,
+.amount-currency-box {
+  color: white;
+}
+.label-currency-box > h4,
+.amount-currency-box > h4 {
+  margin: 10px 0 10px !important;
+  margin-left: 0px;
+}
+
+.conversion-box-property {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.grid-container {
+  height: 210px;
+}
+
+p.conversion-box-property label {
+  width: 45%;
+  float: left;
+  text-align: left;
+  padding-left: 20px;
+}
+
+p.conversion-box-property span {
+  display: block;
+  float: left;
+  width: 45%;
+  text-align: left;
+  padding: 10px;
+}
+
+.heading div {
+  width: 50%;
+}
+
+.heading {
+  margin-top: 10px;
+}
+
+.currency-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

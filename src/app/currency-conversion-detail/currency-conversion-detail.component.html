@@ -1,0 +1,118 @@
+<div class="currency_wrapper">
+  <div class="banner">
+    <div class="logo"><img src="../../assets/images/logo.png" /></div>
+    <div class="top_button_sec">
+      <a title="EUR USD Details" href="/detail/EUR/USD/1">EUR USD Details</a>
+      <a title="EUR GBP Details" href="/detail/EUR/GBP/1">EUR GBP Details</a>
+    </div>
+  </div>
+  <div class="heading row">
+    <div>
+      <h2>
+        {{ inputObject.fromCurrencyType }} -
+        <span>{{ fromCurrencyObject.currency_name }}</span>
+      </h2>
+    </div>
+    <div>
+      <button class="btn-home" (click)="back()">Back To Home</button>
+    </div>
+  </div>
+  <div class="curr-form">
+    <table class="Currency_box_top">
+      <tr>
+        <td class="converter_box_left">
+          <p>Amount</p>
+          <input
+            type="number"
+            name=""
+            min="0"
+            (keydown)="inputChange()"
+            (change)="rateConvert()"
+            title="Amount"
+            [(ngModel)]="amount"
+          />
+        </td>
+        <td class="converter_box_right">
+          <table class="Currency_box">
+            <tr>
+              <th width="20%"><p>From</p></th>
+              <th width="10%"></th>
+              <th width="20%"><p>To</p></th>
+            </tr>
+            <tr>
+              <td class="disable-input">
+                <select
+                  class="curr-from"
+                  [(ngModel)]="inputObject.fromCurrencyType"
+                >
+                  <option
+                    [value]="obj.currency_code"
+                    *ngFor="let obj of lstCurrency"
+                  >
+                    {{ obj.currency_code }}
+                  </option>
+                </select>
+              </td>
+              <td class="disable-input">
+                <button
+                  href="#"
+                  (click)="swapCurrency()"
+                  class="convert-icon"
+                ></button>
+              </td>
+              <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+                <select
+                  class="curr-to"
+                  [(ngModel)]="inputObject.toCurrencyType"
+                >
+                  <option
+                    [value]="obj.currency_code"
+                    *ngFor="let obj of lstCurrency"
+                  >
+                    {{ obj.currency_code }}
+                  </option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+          <button (click)="convertCurrency()">Convert</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="converter_box_left disable-input">
+          <input type="text" name="" [ngModel]="baseConversion" />
+        </td>
+
+        <td class="converter_box_right">
+          <table class="Currency_box">
+            <tr>
+              <td class="disable-input">
+                <textarea [ngModel]="amountConversion"></textarea>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="Currency_box_bottom">
+  <hr />
+  <table>
+    <tr>
+      <td>
+        <div id="container">
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="chartOptions"
+          ></highcharts-chart>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

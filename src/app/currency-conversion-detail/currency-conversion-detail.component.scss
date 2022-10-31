@@ -1,0 +1,13 @@
+.heading div {
+  width: 50%;
+  margin-top: 10px;
+}
+
+::ng-deep .Currency_box_bottom * {
+  /* Your style */
+  min-width: 100% !important;
+}
+#container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

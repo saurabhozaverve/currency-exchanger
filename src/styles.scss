@@ -1,0 +1,188 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: #2a2a2a;
+}
+.disable-input {
+  cursor: not-allowed !important;
+}
+.disable-input * {
+  pointer-events: none;
+}
+body {
+  font-family: sans-serif;
+  background-color: #2a2a2a;
+}
+
+hr {
+  margin: 20px 0px;
+}
+.banner {
+  width: auto;
+  position: relative;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #2a2a2a;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.Currency_box_top {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.convert-icon::before {
+  font-size: 53px;
+  color: #eee;
+  text-decoration: none;
+  content: "\21D4";
+  position: relative;
+  top: -5px;
+}
+.convert-icon:hover {
+  background-color: #2a2a2a;
+}
+.convert-icon {
+  text-decoration: none;
+  color: #eee;
+  background-color: #2a2a2a;
+}
+.curr-form {
+  display: block;
+  width: 100%;
+}
+.Currency_box_bottom td div {
+  border: 1px solid #ccc;
+  width: auto;
+  min-height: 100px;
+  margin: 10px;
+  display: block;
+  border-radius: 10px;
+}
+.currency_wrapper {
+  width: 98%;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  top: 8px;
+  background-color: #2a2a2a;
+  z-index: 99;
+}
+.Currency_box_bottom table {
+  width: 100%;
+}
+.Currency_box_bottom td {
+  width: 33%;
+  text-align: center;
+}
+.Currency_box_bottom {
+  width: 100%;
+  position: absolute;
+  top: 480px;
+}
+.Currency_box {
+  width: 100%;
+}
+.converter_box_left {
+  width: 60%;
+}
+.converter_box_right {
+  width: 40%;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #2684ff;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+.Currency_box_top td:nth-child(1),
+.Currency_box_top td:nth-child(3) {
+  text-align: center;
+}
+.top_button_sec {
+  width: 50%;
+  text-align: right;
+}
+.top_button_sec > a {
+  margin-right: 5px;
+}
+.row {
+  width: 100%;
+  display: flex;
+}
+.logo {
+  width: 50%;
+  text-align: left;
+}
+.banner a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  padding: 10px;
+}
+@media (max-width: 567px) {
+  .converter_box_left {
+    width: 100%;
+    display: block;
+  }
+  .converter_box_right {
+    width: 100%;
+    display: block;
+  }
+  .Currency_box_top > tbody > tr {
+    display: block;
+  }
+  .banner a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    font-size: 11px;
+    padding: 5px;
+    display: block;
+    margin: 5px;
+  }
+}
+h2 span {
+  font-weight: normal;
+}
+button:hover {
+  background: #ccc;
+}
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  height: 39px;
+  width: calc(100% - 20px);
+}
+
+p,
+h2 {
+  color: #fff;
+}
+textarea {
+  width: calc(100% - 12px);
+  padding: 5px;
+}
+.heading button {
+  float: right;
+  width: 150px;
+}

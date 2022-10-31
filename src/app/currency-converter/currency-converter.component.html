@@ -1,0 +1,145 @@
+<div class="currency_wrapper">
+  <div class="banner">
+    <div class="logo"><img src="../../assets/images/logo.png" /></div>
+    <div class="top_button_sec">
+      <a title="EUR USD Details" href="/detail/EUR/USD/1">EUR USD Details</a>
+      <a title="EUR GBP Details" href="/detail/EUR/GBP/1">EUR GBP Details</a>
+    </div>
+  </div>
+  <div class="heading row">
+    <h2>Currency Exchanger</h2>
+  </div>
+  <div class="curr-form">
+    <table class="Currency_box_top">
+      <tr>
+        <td class="converter_box_left">
+          <p>Amount</p>
+          <input
+            type="number"
+            name=""
+            min="0"
+            (keydown)="inputChange()"
+            (change)="rateConvert()"
+            title="Amount"
+            [(ngModel)]="amount"
+          />
+        </td>
+        <td class="converter_box_right">
+          <table class="Currency_box">
+            <tr>
+              <th width="20%"><p>From</p></th>
+              <th width="10%"></th>
+              <th width="20%"><p>To</p></th>
+            </tr>
+            <tr>
+              <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+                <select
+                  class="curr-from"
+                  [(ngModel)]="inputObject.fromCurrencyType"
+                >
+                  <option
+                    [value]="obj.currency_code"
+                    *ngFor="let obj of lstCurrency"
+                  >
+                    {{ obj.currency_code }}
+                  </option>
+                </select>
+              </td>
+              <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+                <button
+                  href="#"
+                  (click)="swapCurrency()"
+                  class="convert-icon"
+                ></button>
+              </td>
+              <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+                <select
+                  class="curr-to"
+                  [(ngModel)]="inputObject.toCurrencyType"
+                >
+                  <option
+                    [value]="obj.currency_code"
+                    *ngFor="let obj of lstCurrency"
+                  >
+                    {{ obj.currency_code }}
+                  </option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+          <button (click)="convertCurrency()">Convert</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="converter_box_left disable-input">
+          <input type="text" name="" [ngModel]="baseConversion" />
+        </td>
+
+        <td class="converter_box_right">
+          <table class="Currency_box">
+            <tr>
+              <td class="disable-input">
+                <textarea [ngModel]="amountConversion"></textarea>
+              </td>
+              <td [ngClass]="!isAmountValid ? 'disable-input' : ''">
+                <button (click)="moreDetail()">More Detail</button>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="Currency_box_bottom">
+  <hr />
+  <table *ngIf="gridDataSet.length > 0">
+    <tr *ngFor="let obj of gridIndex; let outIndex = index">
+      <td *ngFor="let obj of gridIndex; let inIndex = index">
+        <div class="grid-container">
+          <p class="conversion-box-property">
+            <label class="label-currency-box"><h4>From Currency :</h4></label>
+            <span
+              class="currency-name"
+              [title]="
+                gridDataSet[indexMultiplier(outIndex, inIndex)].fromcurrencyname
+              "
+              >{{
+                gridDataSet[indexMultiplier(outIndex, inIndex)].fromcurrencyname
+              }}
+            </span>
+          </p>
+          <p class="conversion-box-property">
+            <label class="amount-currency-box"><h4>Amount :</h4></label>
+            <span class="currency-value">{{
+              gridDataSet[indexMultiplier(outIndex, inIndex)].fromcurrencybase
+            }}</span>
+          </p>
+          <p class="conversion-box-property">
+            <label class="label-currency-box"><h4>To Currency :</h4></label>
+            <span
+              class="currency-name"
+              [title]="
+                gridDataSet[indexMultiplier(outIndex, inIndex)].tocurrencyname
+              "
+              >{{
+                gridDataSet[indexMultiplier(outIndex, inIndex)].tocurrencyname
+              }}</span
+            >
+          </p>
+          <p class="conversion-box-property">
+            <label class="amount-currency-box"><h4>Amount :</h4></label>
+            <span class="currency-value">{{
+              gridDataSet[indexMultiplier(outIndex, inIndex)].tocurrencybase
+            }}</span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
